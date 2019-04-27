@@ -146,7 +146,7 @@ export PATH="`echo $PATH | sed 's/\(:.\|:\)*:/:/g;s/^.\?://;s/:.\?$//'`"
 generated_config=
 if [ "$build_dir_setup_enabled" = "true" ]; then
     # mv conf/local.conf conf/local.conf.sample
-    mv sources/gco/meta-v2x-test/conf/local.conf conf/local.conf.sample
+    mv ../sources/gco/meta-v2x-test/conf/local.conf conf/local.conf.sample
 
     # Generate the local.conf based on the Yocto defaults
     TEMPLATES=$CWD/sources/base/conf 
@@ -204,7 +204,7 @@ EOF
 
     sleep 4
 
-    more -d $CWD/sources/freescale/meta-frescale/EULA
+    more -d $CWD/sources/freescale/meta-freescale/EULA
     echo
     REPLY=
     while [ -z "$REPLY" ]; do
