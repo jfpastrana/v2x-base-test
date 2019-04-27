@@ -42,14 +42,11 @@ the script prepares the calling shell for running bitbake on the build
 directory <build-dir>. The build directory configuration is unchanged.
 "
 
-    ls sources/*/conf/machine/*.conf > /dev/null 2>&1
-    ls sources/meta-freescale-distro/conf/distro/fslc-*.conf > /dev/null 2>&1
+    ls sources/*/*/conf/machine/*.conf > /dev/null 2>&1
+    ls sources/poky/meta-poky/conf/distro/*.conf > /dev/null 2>&1
     if [ $? -eq 0 ]; then
         echo -e "
-Supported machines: `echo; ls sources/*/conf/machine/*.conf \
-| sed s/\.conf//g | sed -r 's/^.+\///' | xargs -I% echo -e "\t%"`
-
-Supported Freescale's distros: `echo; ls sources/meta-freescale-distro/conf/distro/fslc-*.conf \
+Supported machines: `echo; ls sources/*/*/conf/machine/*.conf \
 | sed s/\.conf//g | sed -r 's/^.+\///' | xargs -I% echo -e "\t%"`
 
 Available Poky's distros: `echo; ls sources/poky/meta-poky/conf/distro/*.conf \
@@ -58,7 +55,7 @@ Available Poky's distros: `echo; ls sources/poky/meta-poky/conf/distro/*.conf \
 Examples:
 
 - To create a new Yocto build directory:
-  $ MACHINE=imx6qdlsabresd DISTRO=fslc-framebuffer source $PROGNAME build
+  $ MACHINE=solidrun-imx6 DISTRO=poky source $PROGNAME build
 
 - To use an existing Yocto build directory:
   $ source $PROGNAME build
@@ -148,7 +145,8 @@ export PATH="`echo $PATH | sed 's/\(:.\|:\)*:/:/g;s/^.\?://;s/:.\?$//'`"
 
 generated_config=
 if [ "$build_dir_setup_enabled" = "true" ]; then
-    mv conf/local.conf conf/local.conf.sample
+    # mv conf/local.conf conf/local.conf.sample
+    mv sources/gco/meta-v2x-test/conf/local.conf conf/local.conf.sample
 
     # Generate the local.conf based on the Yocto defaults
     TEMPLATES=$CWD/sources/base/conf 
@@ -206,7 +204,7 @@ EOF
 
     sleep 4
 
-    more -d $CWD/sources/meta-freescale/EULA
+    more -d $CWD/sources/freescale/meta-frescale/EULA
     echo
     REPLY=
     while [ -z "$REPLY" ]; do
@@ -241,7 +239,9 @@ For more information about OpenEmbedded see their website:
 You can now run 'bitbake <target>'
 
 Common targets are:
+    core-image-v2x
     core-image-minimal
+    core-image-base
     meta-toolchain
     meta-toolchain-sdk
     adt-installer
