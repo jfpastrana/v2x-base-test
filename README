@@ -1,1 +1,52 @@
-Test
+GCO - V2X
+===============================
+
+Supported boards
+----------------
+
+In order to know the supported boards, please, see the release notes at
+
+   http://freescale.github.io/doc/release-notes/current/
+
+Quick Start Guide
+-----------------
+
+Once you have downloaded the source of all projects, you will have to
+call:
+
+$: MACHINE=solidrun-imx6 DISTRO=poky source setup-environment build
+
+After this step, you will be with everything need for build an image.
+
+Contributing
+------------
+
+To contribute to the development of this BSP and/or submit patches for
+new boards please send the patches against the respective project as
+informated bellow:
+
+The following layers are included on this release:
+
+ * poky: base build system and metadata
+   Path: sources/poky
+   GIT: git://git.yoctoproject.org/poky
+   Mailing list: https://lists.yoctoproject.org/listinfo/yocto
+
+ * meta-openembedded: extra packages and features
+   Path: sources/meta-openembedded
+   GIT: git://git.openembedded.org/meta-openembedded
+   Mailing list: http://lists.linuxtogo.org/cgi-bin/mailman/listinfo/openembedded-devel
+   Note: Use [meta-oe] in subject to easy the processing
+
+ * meta-freescale: support for Freescale's processors and board
+   Path: sources/meta-freescale
+   Project: https://github.com/Freescale/meta-freescale
+   GIT: git://github.com/Freescale/meta-freescale.git
+   Mailing list: https://lists.yoctoproject.org/listinfo/meta-freescale
+
+ * meta-v2x: support for boards using Freescale's processors
+   Path: sources/meta-freescale-3rdparty
+   Project: https://github.com/jfpastrana/meta-v2x-test
+   GIT: git://github.com/jfpastrana/meta-v2x-test.git
+   Mailing list: javier.fernandez.pastrana@gmail.com
+   Note: Use [3rdparty] in subject to easy the processing
