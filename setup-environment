@@ -239,7 +239,7 @@ For more information about OpenEmbedded see their website:
 You can now run 'bitbake <target>'
 
 Common targets are:
-    core-image-v2x
+    core-image-v2x-dev
     core-image-minimal
     core-image-base
     meta-toolchain
